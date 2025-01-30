@@ -1,0 +1,21 @@
+# Use the httpd (Apache) base image
+FROM httpd:latest
+
+# Set the working directory
+WORKDIR /usr/local/apache2/htdocs/
+
+# Create a volume for persistent storage
+VOLUME /saves
+
+# Remove everything in the working directory
+RUN rm -rf /usr/local/apache2/htdocs/*
+
+# Download and extract the developer's code
+RUN apt-get update && apt-get install -y unzip wget && \
+    wget -O /tmp/halloween.zip https://linux-devops-course.s3.amazonaws.com/halloween.zip && \
+    unzip /tmp/halloween.zip -d /tmp/halloween && \
+    cp -r /tmp/halloween/* /usr/local/apache2/htdocs/ && \
+    rm -rf /tmp/halloween /tmp/halloween.zip
+
+# Expose port 80
+EXPOSE 80
