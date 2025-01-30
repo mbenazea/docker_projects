@@ -1,0 +1,16 @@
+tasks/requirements are as follows:
+
+• The application code is written in Python
+• Your base image is ubuntu
+• Your working directory is /app
+• Download and install python3 and python3-pip while writing your dockerfile
+• Can you explain your previous step?
+• You can have the developer code here;
+• https://group5-braincells.s3.amazonaws.com/python-web-app.zip
+• The directory(devOps) contains the Python code for the web application
+• Your entrypoint will be python3 and your cmd (manage.py, runserver, 0.0.0.0:8000)
+• Deploy your application and at the browser specified at the end /demo
+• for example http:amazonaws.com:8000/demo/
+• Push the image to dockerhub
+
+# this the case  we use multistage build to make the image smaller
